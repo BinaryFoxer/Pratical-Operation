@@ -664,6 +664,16 @@
               <FileType>5</FileType>
               <FilePath>.\System\Delay.h</FilePath>
             </File>
+            <File>
+              <FileName>myExti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\myExti.c</FilePath>
+            </File>
+            <File>
+              <FileName>myExti.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\myExti.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

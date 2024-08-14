@@ -10,7 +10,7 @@ void PWM_Init(void)
 	
 	GPIO_InitTypeDef GPIO_InitStruct;
 	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF_PP;	//IO口交给定时器控制
-	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_0;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
 	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
 	
@@ -30,6 +30,9 @@ void PWM_Init(void)
 	TIM_OCInitStruct.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OC1Init(TIM2, &TIM_OCInitStruct);
 	
+	TIM_OCInitStruct.TIM_OCPolarity = TIM_OCPolarity_Low;
+	TIM_OC2Init(TIM2, &TIM_OCInitStruct);
+	
 	TIM_Cmd(TIM2, ENABLE);
 	
 }
@@ -38,6 +41,7 @@ void PWM_Init(void)
 void Set_CCR(uint16_t Compare)
 {
 	TIM_SetCompare1(TIM2, Compare);
+	TIM_SetCompare2(TIM2, Compare);
 	
 }
 
